@@ -6,7 +6,6 @@ body {
 #app {
   display: grid;
   grid-auto-rows: minmax(200px, auto);
-  /* grid-template-columns:  */
   height: 100vh;
   background: #fff;
   color: #f0d43a;
@@ -43,7 +42,6 @@ body {
 
 .title {}
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
 label {
   display: block;
   font-size: 27px;
@@ -83,7 +81,6 @@ textarea {
   font-family: "Oswald", sans-serif;
 }
 
-/* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
 textarea:focus,
@@ -91,21 +88,17 @@ button:focus {
   outline: none;
 }
 
-/* Style for Placeholder Text*/
 ::placeholder {
-  /* Firefox, Chrome, Opera */
   color: #f0d43a;
   font-family: "Oswald", sans-serif;
 }
 
 :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: #f0d43a;
   font-family: "Oswald", sans-serif;
 }
 
 ::-ms-input-placeholder {
-  /* Microsoft Edge */
   color: #f0d43a;
   font-family: "Oswald", sans-serif;
 }

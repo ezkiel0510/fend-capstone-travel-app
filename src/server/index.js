@@ -20,14 +20,14 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static("dist"));
 
-const port = 9090;
-
 // Setup Server
-app.listen(port, listening);
+app.listen(9090, function () {
+  console.log("Production listening on port 9090!");
+});
 
-function listening() {
-  console.log(`running on localhost: ${port}`);
-}
+app.listen(9000, function () {
+  console.log("Development listening on port 9000!");
+});
 
 // Respond with JS object when a GET request is made to the homepage
 app.get("/", function (req, res) {
@@ -37,9 +37,9 @@ app.get("/", function (req, res) {
 app.post("/addData", addData);
 
 function addData(req, res) {
-  projectData["date"] = req.body.date;
-  projectData["temp"] = req.body.temp;
-  projectData["feel"] = req.body.feel;
+  projectData["lat"] = req.body.lat;
+  projectData["lon"] = req.body.lon;
+  projectData["countryName"] = req.body.countryName;
   res.send(projectData);
 }
 

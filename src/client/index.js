@@ -1,3 +1,3 @@
-import { generateWeather } from "./js/app";
+import { getGeoNames } from "./js/app";
 
-export { generateWeather };
+export { getGeoNames };

@@ -41,6 +41,6 @@ module.exports = {
     library: "Client",
   },
   devServer: {
-    port: 9090,
+    port: 9000,
   },
 };
