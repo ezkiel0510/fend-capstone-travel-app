@@ -2,3 +2,4 @@ node_modules
 dist
 .env
 info.json
+package-lock.json

@@ -6,41 +6,46 @@
   </head>
   <body>
     <div id="app">
-      <div class="holder headline">Travel App</div>
+      <div class="holder headline">Front End Capstone - Travel App</div>
       <div class="holder city">
-        <label for="city">City</label>
-        <input type="text" id="city" placeholder="Enter city here" />
+        <!-- <label for="city">City</label> -->
+        <input type="text" id="city" placeholder="Where you plan to visit ?" />
         <div id="city-wrong"></div>
       </div>
-      <button id="generate" type="submit">Generate</button>
+      <button id="generate" type="submit">Check</button>
       <div class="holder entry">
-        <div class="title">GeoNames</div>
         <table id="geo-names">
+          <caption class="table-title">
+            Location
+          </caption>
           <tr>
             <td>Latitude</td>
-            <td id="lat"></td>
+            <td id="lat" class="city-data"></td>
           </tr>
           <tr>
             <td>Longitude</td>
-            <td id="lon"></td>
+            <td id="lon" class="city-data"></td>
           </tr>
           <tr>
             <td>Country</td>
-            <td id="country"></td>
+            <td id="country" class="city-data"></td>
           </tr>
         </table>
         <table id="weather-bit">
+          <caption class="table-title">
+            Weather
+          </caption>
           <tr>
             <td>Temperature</td>
-            <td id="temp"></td>
+            <td id="temp" class="city-data"></td>
           </tr>
           <tr>
             <td>Cloud coverage</td>
-            <td id="clouds"></td>
+            <td id="clouds" class="city-data"></td>
           </tr>
           <tr>
             <td>City</td>
-            <td id="city-name"></td>
+            <td id="city-name" class="city-data"></td>
           </tr>
         </table>
         <div id="pixabay-image"></div>

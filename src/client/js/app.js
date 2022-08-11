@@ -3,6 +3,7 @@ import {
   getWeatherBitService,
   getPixabayService,
 } from "./service";
+import { removeAllChildNodes } from "./helper";
 
 /* Global Variables */
 const GEO_URL = "http://api.geonames.org/searchJSON?q=";
@@ -23,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getGeoNames(e) {
   const city = document.getElementById("city").value;
+  const pixabayImage = document.getElementById("pixabay-image");
+  removeAllChildNodes(pixabayImage);
   getGeoNamesService(GEO_URL, city, GEO_USER_NAME).then(function (data) {
     if (data.geonames[0]) {
       postData("/addData", {
@@ -59,8 +62,8 @@ const updateUI = async () => {
   const res = await fetch("/all");
   try {
     const data = await res.json();
-    document.getElementById("lat").innerHTML = data.lat;
-    document.getElementById("lon").innerHTML = data.lon;
+    document.getElementById("lat").innerHTML = `${data.lat} degrees`;
+    document.getElementById("lon").innerHTML = `${data.lon} degrees`;
     document.getElementById("country").innerHTML = data.countryName;
     getWeatherBitService(
       WEATHER_BIT_URL,
@@ -69,19 +72,20 @@ const updateUI = async () => {
       WEATHER_BIT_KEY
     )
       .then(function ({ data }) {
-        document.getElementById("temp").innerHTML = data[0].temp;
-        document.getElementById("clouds").innerHTML = data[0].clouds;
+        document.getElementById("temp").innerHTML = `${data[0].temp} celsius`;
+        document.getElementById("clouds").innerHTML = `${data[0].clouds} %`;
         document.getElementById("city-name").innerHTML = data[0].city_name;
         return data[0].weather;
       })
       .then(function ({ description }) {
-        const des = `q=${description}`;
+        const des = `q=weather ${description}`;
         getPixabayService(PIXABAY_URL, PIXABAY_KEY, des).then(function ({
           hits,
         }) {
           if (hits[0]) {
-            const image = new Image();
-            image.src = hits[0].previewURL;
+            const image = new Image(300);
+            // image.src = hits[0].previewURL;
+            image.src = hits[0].largeImageURL;
             document.getElementById("pixabay-image").appendChild(image);
           }
         });
