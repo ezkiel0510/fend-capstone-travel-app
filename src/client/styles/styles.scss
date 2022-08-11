@@ -16,8 +16,7 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
-.holder {
-}
+.holder {}
 
 .entry {
   background: rgba(59, 74, 107, 0.4);
@@ -25,28 +24,24 @@ body {
   text-align: center;
 }
 
-#entryHolder {
-}
+#entryHolder {}
 
-#date {
-}
+#date {}
 
-#temp {
-}
+#temp {}
 
-#content {
-}
+#content {}
 
-#zip-wrong{
-    color: #f00;
-    font-size: 15px;
+#zip-wrong {
+  color: #f00;
+  font-size: 15px;
 }
 
 .headline {
-    font-size: 50px;
+  font-size: 50px;
 }
-.title {
-}
+
+.title {}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label {
@@ -76,6 +71,7 @@ button {
   box-shadow: 2px 4px 5px #444;
   margin: auto;
 }
+
 h1 {
   font-size: 36px;
 }
@@ -86,6 +82,7 @@ textarea {
   font-size: 20px;
   font-family: "Oswald", sans-serif;
 }
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -93,6 +90,7 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+
 /* Style for Placeholder Text*/
 ::placeholder {
   /* Firefox, Chrome, Opera */

@@ -69,3 +69,5 @@ const updateUI = async () => {
     console.log("error", error);
   }
 };
+
+export { generateWeather };

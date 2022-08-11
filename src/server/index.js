@@ -18,17 +18,22 @@ const cors = require("cors");
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static("website"));
-const port = 3030;
+app.use(express.static("dist"));
+
+const port = 9090;
 
 // Setup Server
-const server = app.listen(port, listening);
+app.listen(port, listening);
 
 function listening() {
   console.log(`running on localhost: ${port}`);
 }
 
 // Respond with JS object when a GET request is made to the homepage
+app.get("/", function (req, res) {
+  res.sendFile("dist/index.html");
+});
+
 app.post("/addData", addData);
 
 function addData(req, res) {
