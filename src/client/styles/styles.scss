@@ -3,41 +3,41 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Mobile First */
 #app {
   display: grid;
-  // grid-auto-rows: minmax(200px, auto);
-  // height: 100vh;
   background: #fff;
   color: #22b2da;
   justify-content: center;
   grid-gap: 1em;
-  font-size: 20px;
+  font-size: 12px;
   font-family: "Oswald", sans-serif;
 
   .headline {
-    font-size: 50px;
+    font-size: 30px;
     // text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     text-shadow: 2px 2px 4px #000000;
     font-family: fantasy;
+    text-align: center;
   }
 
   .user-input {
-    padding: 16px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: space-evenly;
 
     label {
-      font-size: 24px;
+      font-size: 16px;
     }
 
     input {
       display: block;
-      height: 60px;
+      height: 44px;
       background: #22b2da;
       color: #fff;
-      font-size: 20px;
+      font-size: 16px;
       font-family: "Oswald", sans-serif;
       border: none;
     }
@@ -46,15 +46,13 @@ body {
   button {
     background: #22b2da;
     color: #fff;
-    font-size: 24px;
+    font-size: 16px;
     font-family: "Oswald", sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
     margin: auto;
-    padding: 12px;
+    padding: 8px;
   }
-
-  .holder {}
 
   .entry {
     padding: 16px;
@@ -65,8 +63,8 @@ body {
 
     table {
       caption {
-        font: optional;
-        font-size: 26px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
         font-weight: bold;
         color: #22b2da;
       }
@@ -94,52 +92,85 @@ body {
       text-align: center;
     }
   }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
 }
 
-#entryHolder {}
+/* Medium Screens */
+@media (min-width: 600px) and (max-width: 900px) {
+  #app {
+    font-size: 16px;
 
-#date {}
+    .headline {
+      font-size: 40px;
+    }
 
-#temp {}
+    .user-input {
+      padding: 12px;
 
-#content {}
+      label {
+        font-size: 20px;
+      }
 
-#zip-wrong {
-  color: #f00;
-  font-size: 15px;
+      input {
+        height: 56px;
+        font-size: 16px;
+      }
+    }
+
+    button {
+      font-size: 20px;
+      padding: 8px;
+    }
+
+    .entry {
+      table {
+        caption {
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
 
-.title {}
+/* Large Screens */
+@media (min-width: 901px) {
+  #app {
+    font-size: 20px;
 
-h1 {
-  font-size: 36px;
-}
+    .headline {
+      font-size: 50px;
+    }
 
-textarea {
-  background: #22b2da;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-}
+    .user-input {
+      padding: 16px;
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none;
-}
+      label {
+        font-size: 24px;
+      }
 
-::placeholder {
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
-}
+      input {
+        height: 60px;
+        font-size: 20px;
+      }
+    }
 
-:-ms-input-placeholder {
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
-}
+    button {
+      font-size: 24px;
+      padding: 12px;
+    }
 
-::-ms-input-placeholder {
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+    .entry {
+      table {
+        caption {
+          font-size: 24px;
+        }
+      }
+    }
+  }
 }
