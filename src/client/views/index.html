@@ -7,9 +7,11 @@
   <body>
     <div id="app">
       <div class="holder headline">Front End Capstone - Travel App</div>
-      <div class="holder city">
-        <!-- <label for="city">City</label> -->
-        <input type="text" id="city" placeholder="Where you plan to visit ?" />
+      <div class="holder user-input">
+        <label for="city">Where you plan to visit ?</label>
+        <input type="text" id="city" />
+        <label for="city">When do you leave ?</label>
+        <input type="date" id="end" name="trip-end" />
         <div id="city-wrong"></div>
       </div>
       <button id="generate" type="submit">Check</button>
@@ -33,7 +35,7 @@
         </table>
         <table id="weather-bit">
           <caption class="table-title">
-            Weather
+            Current Weather
           </caption>
           <tr>
             <td>Temperature</td>
@@ -49,6 +51,7 @@
           </tr>
         </table>
         <div id="pixabay-image"></div>
+        <div id="conclusion"></div>
       </div>
     </div>
     <!-- <script src="app.js" type="text/javascript"></script> -->

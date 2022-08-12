@@ -40,6 +40,7 @@ function addData(req, res) {
   projectData["lat"] = req.body.lat;
   projectData["lon"] = req.body.lon;
   projectData["countryName"] = req.body.countryName;
+  projectData["tripLength"] = req.body.tripLength;
   res.send(projectData);
 }
 

@@ -3,7 +3,7 @@ import {
   getWeatherBitService,
   getPixabayService,
 } from "./service";
-import { removeAllChildNodes } from "./helper";
+import { removeAllChildNodes, getDays } from "./helper";
 
 /* Global Variables */
 const GEO_URL = "http://api.geonames.org/searchJSON?q=";
@@ -15,16 +15,20 @@ const PIXABAY_KEY =
   "?key=29199933-5e5f5d1128036c52c7c42f083&image_type=photo&pretty=true&";
 
 // Create a new date instance dynamically with JS
-// let d = new Date();
-// let newDate = d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
+let d1 = new Date();
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("generate").addEventListener("click", getGeoNames);
 });
 
 function getGeoNames(e) {
-  const city = document.getElementById("city").value;
   const pixabayImage = document.getElementById("pixabay-image");
+  const city = document.getElementById("city").value;
+  let d2 = new Date();
+  const endDate = document.getElementById("end").value;
+  if (endDate) d2 = new Date(endDate);
+  const days = getDays(d1, d2);
+
   removeAllChildNodes(pixabayImage);
   getGeoNamesService(GEO_URL, city, GEO_USER_NAME).then(function (data) {
     if (data.geonames[0]) {
@@ -32,6 +36,7 @@ function getGeoNames(e) {
         lat: data.geonames[0].lat,
         lon: data.geonames[0].lng,
         countryName: data.geonames[0].countryName,
+        tripLength: days,
       });
     }
     // We can call here because of using async in getGeoNamesService function
@@ -65,6 +70,11 @@ const updateUI = async () => {
     document.getElementById("lat").innerHTML = `${data.lat} degrees`;
     document.getElementById("lon").innerHTML = `${data.lon} degrees`;
     document.getElementById("country").innerHTML = data.countryName;
+    document.getElementById(
+      "conclusion"
+    ).innerHTML = `Your trip will last for ${data.tripLength} day${
+      data.tripLength > 1 ? "s" : ""
+    }`;
     getWeatherBitService(
       WEATHER_BIT_URL,
       `lat=${data.lat}`,
